@@ -9,6 +9,8 @@ class WSS_Webhooks_Handler {
     public function handle_webhook(WP_REST_Request $request) {
         $event = json_decode($request->get_body());
 
+        WSS_Logger::log('handle_webhook:' . $event);
+
         if ($event->type === 'invoice.payment_succeeded') {
             update_user_meta(get_user_by_meta('stripe_subscription_id', $event->data->object->subscription), 'subscription_status', 'active');
         } elseif ($event->type === 'customer.subscription.deleted') {

@@ -22,8 +22,8 @@ define('WSS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 require_once WSS_PLUGIN_DIR . 'includes/class-wss-logger.php';
 require_once WSS_PLUGIN_DIR . 'includes/class-subscription-product.php';
 require_once WSS_PLUGIN_DIR . 'includes/class-checkout-handler.php';
-require_once WSS_PLUGIN_DIR . 'includes/class-webhooks-handler.php';
-require_once WSS_PLUGIN_DIR . 'includes/class-subscription-manager.php';
+//require_once WSS_PLUGIN_DIR . 'includes/class-webhooks-handler.php';
+//require_once WSS_PLUGIN_DIR . 'includes/class-subscription-manager.php';
 require_once WSS_PLUGIN_DIR . 'includes/class-admin-settings.php';
 
 
@@ -31,8 +31,8 @@ require_once WSS_PLUGIN_DIR . 'includes/class-admin-settings.php';
 function wss_initialize_plugin() {
     new WSS_Subscription_Product();
     new WSS_Checkout_Handler();
-    new WSS_Webhooks_Handler();
-    new WSS_Subscription_Manager();
+    //new WSS_Webhooks_Handler();
+    //new WSS_Subscription_Manager();
     new WSS_Admin_Settings();
 }
 add_action('plugins_loaded', 'wss_initialize_plugin');
